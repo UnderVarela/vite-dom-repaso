@@ -130,3 +130,42 @@ function startExercise5 () {
 }
 
 document.querySelector('#b_ej5').addEventListener('click', startExercise5)
+
+// 6
+document.querySelector('#b_ej6').addEventListener('click', edad)
+
+function edad () {
+  let edad = window.prompt('Tu edad:')
+  if (edad === null) return
+  edad = Number(edad)
+  if (edad >= 18) {
+    window.alert('Puedes conducir')
+  } else {
+    window.alert('No puedes conducir')
+  }
+}
+
+function verificarCadena (cadena) {
+  if (cadena === '') {
+    window.alert('DEBES INTRODUCIR UN VALOR')
+    throw new Error('ERROR!')
+  } else if (isNaN(cadena)) {
+    window.alert('DEBES INTRODUCIR UN NUMERO')
+    throw new Error('ERROR!')
+  } else return Number(cadena)
+}
+
+function ex7 () {
+  const nota = verificarCadena(window.prompt('DAME UNA NOTA'))
+  const caja = document.querySelector('#r_ej7')
+
+  if (nota >= 0 && nota < 3) caja.textContent = `NOTA ${nota} = MUY DEFIFICIENTE`
+  else if (nota >= 3 && nota < 5) caja.textContent = `NOTA ${nota} = INSUFICIENTE`
+  else if (nota >= 5 && nota < 6) caja.textContent = `NOTA ${nota} = SUFICIENTE`
+  else if (nota >= 6 && nota < 7) caja.textContent = `NOTA ${nota} = BIEN`
+  else if (nota >= 7 && nota < 9) caja.textContent = `NOTA ${nota} = NOTABLE`
+  else if (nota >= 9 && nota <= 10) caja.textContent = `NOTA ${nota} = SOBRESALIENTE`
+  else caja.textContent = `NOTA ${nota} NO VALIDA`
+}
+
+document.querySelector('#b_ej7').addEventListener('click', ex7)
